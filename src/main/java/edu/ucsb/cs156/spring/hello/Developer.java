@@ -16,7 +16,11 @@ public class Developer {
      */
 
     public static String getName() {
-        return "Victor";
+        // TODO: Change this to your name
+        // You may use just the name that is used on <https://bit.ly/cs156-f26-teams>
+        // i.e. your first name, or your first and initial of last name
+
+        return "Chris G.";
     }
 
     /**
@@ -25,7 +29,8 @@ public class Developer {
      */
 
     public static String getGithubId() {
-        return "vcnardi524";
+        // TODO: Change this to your github id
+        return "cgaucho";
     }
 
     /**
@@ -35,12 +40,13 @@ public class Developer {
     
     public static Team getTeam() {
         // TODO: Change this to your team name
-        Team team = new Team("s26-00");
-        team.addMember("Conrad");
-        team.addMember("Daniel");
-        team.addMember("Keigo");
-        team.addMember("Derek");
-        team.addMember("Wendy");
+        Team team = new Team("f26-xx");
+        team.addMember("Alice");
+        team.addMember("Bob");
+        team.addMember("Chris G.");
+        team.addMember("Danny");
+        team.addMember("Eve");
+        team.addMember("Frances");
         return team;
     }
 }

@@ -8,16 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
+      - uses: actions/checkout@v5
+      - name: Set up JDK 25
+        uses: actions/setup-java@v5
         with:
           distribution: 'oracle' # See 'Supported distributions' for available options
-          java-version: '21'
+          java-version: '25'
       - name: Pitest
         run: mvn test pitest:mutationCoverage
       - name: Upload Pitest to Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: pitest-mutation-testing
           path: target/pit-reports/**/*  

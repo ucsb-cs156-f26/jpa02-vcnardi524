@@ -8,9 +8,9 @@
 * TODO: Correct the links to repo below, 
   then delete this TODO.  Replace it with 
   a link to your repo, e.g. 
-  https://github.com/ucsb-cs156-s26/jpa02-cgaucho
+  https://github.com/ucsb-cs156-f26/jpa02-cgaucho
 
-Repo: https://ucsb-cs156-s26/STARTER-jpa02
+Repo: https://github.com/ucsb-cs156-f26/STARTER-jpa02
 
 * TODO: Correct the "deployed at" link to app on Dokku
   then delete this TODO.  Replace it with 
@@ -25,6 +25,28 @@ Deployed at: https://jpa02-replace-me.dokku-xx.cs.ucsb.edu
 
 This is a minimal "Hello World" type webapp built with Spring Boot.
 
+# Java 25 setup with SDKMAN
+
+This project follows the course instructions for Java 25.0.4, using the
+recommended `25.0.4-tem` distribution via SDKMAN, with Maven 3.9.16
+(also provided by the included Maven Wrapper, `./mvnw`).
+
+If you use SDKMAN, the setup is:
+
+```bash
+sdk install java 25.0.4-tem
+sdk install maven 3.9.16
+sdk env install
+java -version
+mvn --version
+```
+
+The project includes a `.java-version` file and an `.sdkmanrc` file so that
+the correct Java version is selected automatically when SDKMAN is present
+(run `sdk env` in this directory to select it).  Every `mvn` command below
+can also be run as `./mvnw`, which downloads and uses the pinned Maven
+version without a separate Maven install.
+
 # What can you do with this code?
 
 | Command | What it does   |
@@ -33,16 +55,16 @@ This is a minimal "Hello World" type webapp built with Spring Boot.
 | `mvn test` | Runs JUnit tests on the code base |
 | `mvn test jacoco:report` | Runs JUnit tests, and if all tests pass, computes code coverage.  The code coverage report (Jacoco) can be found in `target/site/jacoco/index.html` |
 | `mvn test pitest:mutationCoverage` | Runs JUnit tests, and if all tests pass, runs pit (pitest.org) mutation testing to measure effectivness of test suite |
-| `mvn package` | Builds the jar file `target/gs-spring-boot-0.1.0.jar` |
+| `mvn package` | Builds the jar file `target/hello-1.1.0.jar` |
 | `mvn spring-boot:run` | Runs the code to startup a web server.  Access it via `http://localhost:8080` on the *same machine* where the server is running.  Use CTRL/C to stop it. |
-| `java -cp target/hello-1.0.0.jar edu.ucsb.cs156.spring.hello.Application` | If done after `mvn package`, runs the code to startup a web server.  |
-| `java -jar target/hello-1.0.0.jar | If done after `mvn package`, this is another way to start up the web server.|
+| `java -cp target/hello-1.1.0.jar edu.ucsb.cs156.spring.hello.Application` | If done after `mvn package`, runs the code to startup a web server.  |
+| `java -jar target/hello-1.1.0.jar` | If done after `mvn package`, this is another way to start up the web server.|
 
 
 # Sources
 
 The code in this repo is in support of
-jpa02 for s26 for CMPSC 156.
+jpa02 for f26 for CMPSC 156.
 
 The code in this repo is based in part on the tutorial here:
 <https://spring.io/guides/gs/spring-boot/>, and the code here in the
@@ -55,8 +77,11 @@ below.
 
 # Modifications from the original
 
-* Java 21 support
-  * Converting `pom.xml` to use Java 21
+* Java 25 support
+  * Converting `pom.xml` to use Java 25
+  * Updating Spring Boot (3.5.x), JaCoCo, and PIT (pitest) to versions that
+    can read Java 25 class files
+  * Adding `.java-version`, `.sdkmanrc`, and the Maven Wrapper (`mvnw`, Maven 3.9.16)
 * JUnit 5
   * Converting test code to use JUnit 5 instead of JUnit 4  
 * Dokku Support
